@@ -1,4 +1,4 @@
-Flask==2.2.5
-Flask-SQLAlchemy==3.0.3
-gunicorn
-
+Flask==2.3.5
+qrcode==7.4.2
+Pillow==10.2.0
+gunicorn==22.2.2
