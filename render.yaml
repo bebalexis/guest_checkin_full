@@ -1,0 +1,7 @@
+
+services:
+  - type: web
+    name: graduation-checkin
+    env: docker
+    plan: starter
+    autoDeploy: true

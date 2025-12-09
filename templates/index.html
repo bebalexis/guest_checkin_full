@@ -1,0 +1,32 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2>Guest List</h2>
+
+<form action="/add" method="POST">
+    <input name="name" placeholder="Guest name" required>
+    <input name="email" placeholder="Email">
+    <input type="number" name="party_size" min="1" placeholder="Party size">
+    <input name="notes" placeholder="Notes">
+    <button class="button" type="submit">Add Guest</button>
+</form>
+
+<table class="table">
+<tr><th>Name</th><th>Party</th><th>Checked in</th><th></th></tr>
+{% for g in guests %}
+<tr>
+<td>{{ g.name }}</td>
+<td>{{ g.party_size }}</td>
+<td>{{ "Yes" if g.checked_in else "No" }}</td>
+<td>
+    <form action="/toggle_checkin/{{g.id}}" method="POST" style="display:inline;">
+        <button class="checkin-btn" type="submit">Toggle</button>
+    </form>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/kiosk" class="button">Open Kiosk Mode</a>
+
+{% endblock %}

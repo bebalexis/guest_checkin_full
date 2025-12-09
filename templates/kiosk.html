@@ -1,0 +1,15 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<h2 style="text-align:center;">Guest Self Check-In</h2>
+
+<form action="/kiosk_checkin" method="POST">
+    <select name="guest_id" style="width:100%; padding:20px; font-size:22px;">
+        {% for g in guests %}
+            <option value="{{g.id}}">{{g.name}}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="kiosk-btn">Check In</button>
+</form>
+
+{% endblock %}
